@@ -132,6 +132,8 @@ class WC_Memberships_CLI_Import extends WC_Memberships_CLI_Command {
             '/wp-admin/admin.php?page=wc_memberships_import_export' .
             '&section=csv_import_user_memberships';
 
+        $_SERVER['PHP_SELF'] = '/wp-admin/admin.php';
+
         $this->superglobal_files_append(
             'wc_memberships_members_csv_import_file',
             $filename,
