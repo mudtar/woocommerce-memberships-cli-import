@@ -123,7 +123,7 @@ class WC_Memberships_CLI_Import extends WC_Memberships_CLI_Command {
         $_POST['wc_memberships_members_csv_import_timezone']                        =
             $assoc_args['timezone'];
         $_POST['wc_memberships_members_csv_import_fields_delimiter']                =
-            $assoc_args['fields_delimiter'];
+            $assoc_args['input_fields_delimiter'];
         $_POST['action']                                                            =
             'wc_memberships_csv_import_user_memberships';
         $_POST['_wpnonce']                                                          =
