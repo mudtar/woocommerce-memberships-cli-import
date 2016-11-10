@@ -68,6 +68,19 @@ class WC_Memberships_CLI_Import extends WC_Memberships_CLI_Command {
 
         $filename = $args[0];
 
+        // Interpret some associative arguments as booleans.
+        foreach ( $assoc_args as $assoc_arg_key => $assoc_arg_value ) {
+            switch ( $assoc_arg_key ) {
+            case 'merge_existing_user_memberships':
+            case 'allow_memberships_transfer':
+            case 'create_new_user_memberships':
+            case 'create_new_users':
+                $assoc_args[ $assoc_arg_key ] =
+                    boolval( json_decode( $assoc_arg_value ) );
+                break;
+            }
+        }
+
         $defaults = array(
             'merge_existing_user_memberships' => true,
             'allow_memberships_transfer'      => false,
