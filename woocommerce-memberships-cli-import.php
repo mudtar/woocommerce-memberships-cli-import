@@ -65,8 +65,15 @@ function init_woocommerce_memberships_cli_import() {
             );
 
             // include required files
-            add_action( 'sv_wc_framework_plugins_loaded',
-                        array( $this, 'includes' ) );
+            //
+            // Set the action priority such that woocommerce-memberships
+            // is sure to load before this. This satisfies the
+            // dependency on WC_Memberships_CLI_Command.
+            add_action(
+                'sv_wc_framework_plugins_loaded',
+                array( $this, 'includes' ),
+                25
+            );
         }
 
         /**
