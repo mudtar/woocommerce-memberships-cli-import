@@ -122,7 +122,7 @@ class WC_Memberships_CLI_Import extends WC_Memberships_CLI_Command {
         // relevance in the woocommerce-memberships control flow begins
         // at WP_Memberships_Admin::process_import_export_form().
         $_POST['MAX_FILE_SIZE']                                                     =
-            2097152;
+            wp_max_upload_size();
         $_POST['wc_memberships_members_csv_import_merge_existing_user_memberships'] =
             $assoc_args['merge_existing_user_memberships'];
         $_POST['wc_memberships_members_csv_import_allow_memberships_transfer']      =
